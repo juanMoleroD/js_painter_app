@@ -61,7 +61,7 @@ describe("decorator", function () {
     
     it("should decrease its stock when they paint a room", function () {
         decorator2.paintRoom(room);
-        const actual = decorator.calculateTotalPaintLiters();
+        const actual = decorator2.calculateTotalPaintLiters();
         assert.strictEqual(actual, 2);
     })
 });
