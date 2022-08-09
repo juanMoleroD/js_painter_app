@@ -5,7 +5,7 @@ class Room {
     }
     applyPaint() {
         this.isPainted = true;
-    } 
+    }
 }
 
 module.exports = Room;

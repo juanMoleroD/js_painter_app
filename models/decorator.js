@@ -1,11 +1,11 @@
 class Decorator {
-    constructor () {
+    constructor() {
         this.stock = [];
     }
     stockAmount() {
         return this.stock.length;
     }
-    addPaint (paint) {
+    addPaint(paint) {
         this.stock.push(paint)
     }
     calculateTotalPaintLiters() {
@@ -18,7 +18,7 @@ class Decorator {
     checkIfEnoughPaint(room) {
         if (this.calculateTotalPaintLiters() >= room.area) {
             return true;
-        } else { 
+        } else {
             return false;
         }
     }
@@ -40,11 +40,6 @@ class Decorator {
             room.applyPaint()
         }
     }
-
 }
-
-
-
-
 
 module.exports = Decorator;
