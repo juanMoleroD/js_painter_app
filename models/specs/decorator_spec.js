@@ -53,14 +53,14 @@ describe("decorator", function () {
     });
 
     it("should paint a room if enough paint", function () {
-        decorator2.paintRoom(room);
+        decorator2.paintRoom2(room);
         assert.strictEqual(room.isPainted, true);
-        decorator.paintRoom(room2);
+        decorator.paintRoom2(room2);
         assert.strictEqual(room2.isPainted, false);
     })
 
     it("should decrease its stock when they paint a room", function () {
-        decorator2.paintRoom(room);
+        decorator2.paintRoom2(room);
         const actual = decorator2.calculateTotalPaintLiters();
         assert.strictEqual(actual, 2);
     })

@@ -22,7 +22,7 @@ class Decorator {
             return false;
         }
     }
-    paintRoom(room) {
+    paintRoom(room) { //this function should be further broken down, done below.
         if (this.checkIfEnoughPaint(room)) {
             let paintNeeded = room.area;
             let numberOfCansToRemove = 0;
@@ -40,6 +40,33 @@ class Decorator {
             room.applyPaint()
         }
     }
+    paintRoom2(room) {
+        if (this.checkIfEnoughPaint(room)) {
+            let paintNeeded = room.area;
+            for (let can of this.stock) {
+                if (paintNeeded >= can.capacityInLiters) {
+                    paintNeeded -= can.capacityInLiters;
+                    can.empty();
+                } else {
+                    can.capacityInLiters -= paintNeeded;
+                    paintNeeded = 0
+                    break;
+                }
+            }
+            room.applyPaint();
+            this.removeEmptyPaintCans();
+        }
+    }
+    removeEmptyPaintCans() {
+        let remainingCans = [];
+        for (let can of this.stock) {
+            if (!can.isEmpty) {
+                remainingCans.push(can);
+            }
+        }
+        this.stock = remainingCans;
+    }
+
 }
 
 module.exports = Decorator;
